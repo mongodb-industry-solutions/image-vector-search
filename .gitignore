@@ -1,0 +1,4 @@
+backend/.env
+.populate_embeddings.py
+/FastAPI
+/frontend/node_modules
