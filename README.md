@@ -66,7 +66,7 @@ In this guide, we'll deploy a **t2.micro** instance running **Ubuntu Server 24.0
 Once the instance is up and running, SSH into the machine using the following command:
 
 ```bash
-ssh ec2-user@<your-ec2-ip-address>
+ssh ubuntu@<your-ec2-ip-address>
 ```
 
 ### **Step 3: Update the Package Index**
