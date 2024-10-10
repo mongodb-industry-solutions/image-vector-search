@@ -60,7 +60,7 @@ In this guide, we'll deploy a **t2.micro** instance running **Ubuntu Server 24.0
 ### **Step 1: Create the EC2 Instance**
 - Launch a t2.micro EC2 instance with Ubuntu Server 24.04 LTS from the AWS Console.
 
-> **_NOTE:_** Be sure to open ports 3456 for the frontend and 8910 for the backend in the security group settings.
+> **_NOTE:_** Ensure that you open port 3456 for the frontend and port 8910 for the backend in your security group settings. Additionally, allow outbound traffic to port 27017, which is the default port for MongoDB.
 
 ### **Step 2: SSH into the Instance**
 Once the instance is up and running, SSH into the machine using the following command:
