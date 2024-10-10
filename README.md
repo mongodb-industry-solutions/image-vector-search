@@ -30,11 +30,14 @@ Create a vector index for the photoEmbedding field in your collection to enable 
 To run the application using Docker, follow these setup steps:
 
 ### Build the Application
+> **_NOTE:_** If you don’t have make installed, you can install it using ```sudo apt install make```
 
 To build the Docker images and start the services, run the following command:
 ```bash
 make build
 ```
+
+> **_NOTE:_** Depending on the version of Docker Compose you have installed, you might need to modify the Makefile to use docker-compose (with a hyphen) instead of docker compose (without a hyphen), as the command format can vary between versions.
 
 ### Stopping the Application
 
@@ -52,10 +55,12 @@ make clean
 
 ## **Deploy on AWS EC2 Instance**
 
-In this guide, we'll deploy on a **t2.micro** instance running **Ubuntu Server 24.04 LTS**.
+In this guide, we'll deploy a **t2.micro** instance running **Ubuntu Server 24.04 LTS** with approximately **20 GB** of storage.
 
 ### **Step 1: Create the EC2 Instance**
 - Launch a t2.micro EC2 instance with Ubuntu Server 24.04 LTS from the AWS Console.
+
+> **_NOTE:_** Be sure to open ports 3456 for the frontend and 8910 for the backend in the security group settings.
 
 ### **Step 2: SSH into the Instance**
 Once the instance is up and running, SSH into the machine using the following command:
