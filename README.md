@@ -116,3 +116,5 @@ sudo systemctl enable docker
 ```
 
 > **_NOTE:_** When deploying, double-check that in frontend/src/_pages/ImageSearch/ImageSearch.js (line 29), you update the IP address by changing const API_BASE_IP = "localhost"; to the correct server IP.
+
+> **_NOTE:_** In the backend, ensure that you've added the frontend's URL to the origins array in the main.py file to properly configure CORS.
