@@ -6,7 +6,7 @@ Inside the backend folder, create a .env file and add your MongoDB connection st
 MONGO_URI="mongodb+srv://<usr>:<pswd>@<cluster-name>.mongodb.net/"
 ```
 
-In MongoDB Atlas, create a database called demo_rag_insurance and a collection called claims_final. Import the dataset demo_rag_insurance.claims.json into this collection.
+In MongoDB Atlas, create a database called demo_rag_insurance and a collection called claims_final. Import the dataset `data/demo_rag_insurance.claims.json` into this collection.
 
 ## MongoDB Vector Search Index 
 
