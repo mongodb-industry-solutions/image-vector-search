@@ -10,10 +10,6 @@ const Navbar = () => {
         <img src="/logo.png" alt="Logo" width={200} />
       </div>
 
-      <div className={styles.links}>
-        <Link to="/imageSearch">Image Search</Link>
-      </div>
-
       <div className={styles.user}>
         <UserProfile></UserProfile>
       </div>

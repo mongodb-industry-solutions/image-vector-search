@@ -26,4 +26,3 @@ async def find_similar_images(request: Request):
     droppedImage = data.get("droppedImage") 
     similar_documents = image_search(droppedImage)
     return {"similar_documents": similar_documents}
-    

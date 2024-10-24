@@ -117,10 +117,6 @@ const ImageSearch = () => {
             <div key={index}>
               <div className={styles.referenceCards}>
                 <div className={styles.imgSection}>
-                  {/* Extract the file name from the path */}
-                  {/* <img src={`/photos/${imagePath.split('/').pop()}`} alt={`Image ${index + 1}`} /> */}
-                  {/* <img src={`/${imagePath}`} alt={`Image ${index + 1}`} /> */}
-                  {/* <img src={`/${imagePath}`} alt={`Image ${index + 1}`} /> */}
                   <img
                     src={`/photos/${similarDocs[index].photo}`}
                     alt={`Image ${index + 1}`}
@@ -128,8 +124,6 @@ const ImageSearch = () => {
                 </div>
 
                 <div className={styles.contentSection}>
-                  {/*<p>{imagePath.split('/').pop()}</p>*/}
-
                   <div className={styles.upperSection}>
                     <div className={styles.fieldWrapper}>
                       <p className={styles.fieldTitle}>Customer ID:</p>
