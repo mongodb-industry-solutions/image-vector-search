@@ -7,7 +7,7 @@ from image_search import image_search
 app = FastAPI()
 
 origins = [
-    "http://localhost:3456",
+    "http://localhost:3000",
 ]
 
 app.add_middleware(
