@@ -3,12 +3,14 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import APIRouter
 from image_search import image_search
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = FastAPI()
 
-origins = [
-    "http://localhost:3000",
-]
+origins = os.getenv("ORIGINS").split(",")
 
 app.add_middleware(
     CORSMiddleware,
