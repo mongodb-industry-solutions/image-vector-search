@@ -141,8 +141,8 @@
   color: #016bf8;
   font-weight: 600;
   background-color: #e1f7ff;
-  border-radius: 25px; /* Change from 50px to 25px or another value */
-  padding: 5px 15px; /* Adjust padding to make the circle smaller */
+  border-radius: 25px;
+  padding: 5px 15px;
 }
 
 .topRow {
