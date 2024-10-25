@@ -6,6 +6,7 @@ import base64
 from io import BytesIO
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
 
 mongo_uri = os.getenv("MONGODB_URI")
@@ -60,7 +61,6 @@ def image_search(image):
 
     documents = list(documents)  
    
-    
     for i in range (limit):
         del documents[i]['damageDescriptionEmbedding']
         del documents[i]['claimDescriptionEmbedding']
