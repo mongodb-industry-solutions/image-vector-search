@@ -70,7 +70,7 @@ const ImageSearch = () => {
           onClick={handleUpload}
           disabled={loading}
         >
-          {loading ? "Uploading..." : "Upload Photo"}
+          {loading ? <div className={styles.spinner}></div> : "Upload Photo"}
         </button>
 
         <br></br>
