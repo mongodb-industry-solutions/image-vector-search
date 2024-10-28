@@ -95,7 +95,7 @@ The frontend will now be accessible at http://localhost:3000 by default, providi
 To run the application using Docker, follow these setup steps:
 
 ### Build the Application
-> **_NOTE:_** If you don’t have make installed, you can install it using `sudo apt install make` or `brew install mak`
+> **_NOTE:_** If you don’t have make installed, you can install it using `sudo apt install make` or `brew install make`
 
 To build the Docker images and start the services, run the following command:
 ```bash
