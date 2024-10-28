@@ -1,16 +1,31 @@
 # Insurance Image Vector Search Demo - MongoDB 
 
-Inside the backend folder, create a .env file and add your MongoDB connection string using the following format:
+## Overview 
 
-```bash
-MONGO_URI="mongodb+srv://<usr>:<pswd>@<cluster-name>.mongodb.net/"
-```
+This project showcases a vector-based image search application tailored for the insurance industry. Using MongoDB’s vector search capabilities, the demo allows for efficient querying and retrieval of images by leveraging image embeddings (numerical representations of image features) to find visually similar insurance claim images. The backend API facilitates this search, enabling comparisons based on image content rather than traditional keywords.
 
-In MongoDB Atlas, create a database called demo_rag_insurance and a collection called claims_final. Import the dataset `data/demo_rag_insurance.claims.json` into this collection.
+## Key Features
 
-## MongoDB Vector Search Index 
+- **Similarity Search**: Uses vector embeddings to find similar images based on content rather than text tags or metadata.
+- **MongoDB Vector Indexing**: Efficiently manages and queries large sets of image embeddings.
 
-Create a vector index for the photoEmbedding field in your collection to enable efficient similarity search using vector embeddings. This index will compare image embeddings based on cosine similarity. Ensure the numDimensions matches the output size of your embedding model.
+## Prerequisites:
+
+- **[MongoDB Atlas account](https://www.mongodb.com/products/platform/atlas-database)**: A cloud-based MongoDB account for creating the database and managing data.
+- **Dataset File**: A sample dataset located at `data/demo_rag_insurance.claims.json` to populate the MongoDB collection with sample insurance claim data, including image embeddings.
+
+
+## Setup Instructions
+
+### Step 0: Set Up MongoDB Database and Collection
+
+1. Log in to [MongoDB Atlas](https://account.mongodb.com/account/login) and create a new database named `demo_rag_insurance`.
+2. Inside this database, create a collection called `claims_final`.
+3. Import the dataset file `data/demo_rag_insurance.claims.json` into the `claims_final` collection.
+
+#### MongoDB Vector Search Index 
+
+To enable efficient similarity search using vector embeddings, create a vector index for the `photoEmbedding` field in your collection. This index will use cosine similarity to compare image embeddings.
 
 ```json
 {
@@ -25,12 +40,62 @@ Create a vector index for the photoEmbedding field in your collection to enable 
 }
 ```
 
+Ensure that numDimensions matches the output dimensions of your embedding model.
+
+
+### Step 1: Configure the Environment Variables for the backend
+
+1. In the backend folder, create a .env file.
+2. Add your MongoDB connection string using the following format and also specify the frontend URL that is permitted to interact with the backend API:
+
+```bash
+MONGO_URI="mongodb+srv://<username>:<password>@<cluster-name>.mongodb.net/"
+ORIGINS=http://localhost:3000
+```
+
+Replace `username`, `password`, and `cluster-name` with your MongoDB credentials.
+
+### Step 2. Configure the Environment Variables for the frontend
+
+1. In the `frontend` folder, create a `.env.local` file.
+2. Add the URL for the API using the following format:
+
+```bash
+NEXT_PUBLIC_IMAGE_SEARCH_API_URL="http://localhost:8000/imageSearch"
+```
+
+### Step 3: Run the backend
+
+1. Navigate to the `backend` folder.
+2. Install dependencies using [Poetry](https://python-poetry.org/) by running:
+```bash
+poetry install
+```
+3. Start the backend server with the following command:
+```bash
+poetry run uvicorn main:app --host 0.0.0.0 --port 8000
+```
+The backend will now be accessible at http://localhost:8000, ready to handle API requests for image vector search.
+
+### Step 4 Run the frontend
+1. Navigate to the `frontend` folder.
+2. Install dependencies by running:
+```bash
+npm install
+```
+3. Start the frontend development server with:
+````bash
+npm run dev
+````
+
+The frontend will now be accessible at http://localhost:3000 by default, providing a user interface to interact with the image vector search demo.
+
 ## Docker Setup Instructions
 
 To run the application using Docker, follow these setup steps:
 
 ### Build the Application
-> **_NOTE:_** If you don’t have make installed, you can install it using ```sudo apt install make```
+> **_NOTE:_** If you don’t have make installed, you can install it using `sudo apt install make` or `brew install mak`
 
 To build the Docker images and start the services, run the following command:
 ```bash
@@ -114,7 +179,3 @@ Enable Docker to start on boot:
 ```
 sudo systemctl enable docker
 ```
-
-> **_NOTE:_** When deploying, double-check that in frontend/src/_pages/ImageSearch/ImageSearch.js (line 29), you update the IP address by changing const API_BASE_IP = "localhost"; to the correct server IP.
-
-> **_NOTE:_** In the backend, ensure that you've added the frontend's URL to the origins array in the main.py file to properly configure CORS.
