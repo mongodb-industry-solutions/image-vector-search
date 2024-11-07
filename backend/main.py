@@ -22,6 +22,10 @@ app.add_middleware(
 
 router = APIRouter()
 
+@app.get("/")
+async def root():
+    return {"status": "OK"}
+
 @app.post("/imageSearch")
 async def find_similar_images(request: Request):
     data = await request.json()
