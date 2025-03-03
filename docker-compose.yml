@@ -2,7 +2,7 @@ services:
   mongodb-image-search-front:
     build:
       context: ./
-      dockerfile: dockerfile.frontend
+      dockerfile: Dockerfile.frontend
     image: vector-search-front:latest
     ports:
       - "3000:3000"
@@ -11,7 +11,7 @@ services:
   mongodb-image-search-back:
     build:
       context: ./
-      dockerfile: dockerfile.backend
+      dockerfile: Dockerfile.backend
     image: vector-search-back:latest
     ports:
       - "8000:8000"
