@@ -1,0 +1,10 @@
+env:
+  NODE_ENV: staging
+  # Internal k8s service URL for server-side API proxy calls
+  INTERNAL_API_URL: http://image-vector-search-backend-web-app:80
+  # External URL as fallback for direct client calls (though not recommended due to SSO)
+  NEXT_PUBLIC_API_URL: https://image-vector-search-backend.industrysolutions.staging.corp.mongodb.com
+
+# No service account needed for frontend
+serviceAccount:
+  enabled: false

@@ -1,0 +1,34 @@
+services:
+  image-vector-search-front:
+    build:
+      context: .
+      no_cache: true
+      dockerfile: dockerfile.frontend
+    image: image-vector-search-front:latest
+    environment:
+      # Internal API URL for server-side proxy calls (Kubernetes/Docker internal)
+      - INTERNAL_API_URL=http://image-vector-search-back:80
+      # Public API URL for external access (fallback)
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    ports:
+      - "8080:8080"
+    restart: always
+    container_name: image-vector-search-front
+    depends_on:
+      - image-vector-search-back
+  image-vector-search-back:
+    build:
+      context: .
+      no_cache: true
+      dockerfile: dockerfile.backend
+    image: image-vector-search-back:latest
+    environment:
+      - MONGODB_URI=${MONGO_URI}
+    volumes:
+      - ~/.aws/credentials:/root/.aws/credentials:ro
+      - ~/.aws/config:/root/.aws/config:ro
+      - ~/.aws/sso/cache:/root/.aws/sso/cache:rw  # Only make cache writable
+    ports:
+      - "8080:8080"
+    restart: always
+    container_name: image-vector-search-back
