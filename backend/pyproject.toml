@@ -13,6 +13,7 @@ dependencies = [
     "uvicorn>=0.32.0,<0.33.0",
     "python-dotenv>=1.0.1,<2.0.0",
     "anyio>=4.14.2",
+    "pillow>=13.0.0",
 ]
 
 [tool.poetry]
