@@ -12,6 +12,7 @@ This project showcases a vector-based image search application tailored for the 
 ## Prerequisites:
 
 - **[MongoDB Atlas account](https://www.mongodb.com/products/platform/atlas-database)**: A cloud-based MongoDB account for creating the database and managing data.
+  - 1. Or [create an Atlas Ephemeral Cluster](https://www.mongodb.com/docs/atlas/tutorial/create-ephemeral-cluster/), a temporary Atlas Free cluster that you can claim within 7 days to convert into a standard Free cluster.
 - **Dataset File**: A sample dataset located at `data/demo_rag_insurance.claims.json` to populate the MongoDB collection with sample insurance claim data, including image embeddings.
 
 
